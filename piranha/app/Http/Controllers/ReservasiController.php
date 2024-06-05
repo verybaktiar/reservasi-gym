@@ -19,7 +19,7 @@ class ReservasiController extends Controller
         
         $reservasi->save();
          // Simpan reservasi ke session
-       session(['reservasi' => $reservasi]);
+        session(['reservasi' => $reservasi]);
 
         // Redirect kembali ke halaman sebelumnya atau ke halaman lain jika perlu
         return redirect()->route('reservasi.detail', ['id' => $reservasi->id]);
