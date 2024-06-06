@@ -9,5 +9,10 @@ class Pembayaran extends Model
 {
     use HasFactory;
     protected $table = 'pembayaran';
-    protected $fillable = ['id_pembayaran', 'id_pengguna', 'id_paket', 'tanggal', 'total', 'status'];
-}
+    protected $primaryKey = 'id_pembayaran';
+    protected $fillable = ['id_pembayaran', 'reservasi_id', 'invoice_id', 'nama', 'total_harga', 'status'];
+    public function reservasi()
+    {
+        return $this->belongsTo(Reservasi::class, 'reservasi_id');
+    }}
+

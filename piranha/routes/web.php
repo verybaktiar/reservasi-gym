@@ -82,6 +82,11 @@ Route::group(['middleware' => ['auth']], function () {
 		Route::get('reservasi/detail/{id}', 'App\Http\Controllers\ReservasiController@detail')->name('reservasi.detail');
 		Route::get('/pembayaran', [PembayaranController::class, 'index'])->name('pembayaran.index');
 		Route::post('pembayaran', [PembayaranController::class, 'proses'])->name('pembayaran.proses');
+		Route::post('/pembayaran/simpan', [PembayaranController::class, 'simpan'])->name('pembayaran.simpan');
+		Route::post('/pembayaran/bayar/{id_pembayaran}', [PembayaranController::class, 'bayar'])->name('pembayaran.bayar');
+		Route::get('/pembayaran/invoice/{id_pembayaran}', [PembayaranController::class, 'invoice'])->name('pembayaran.invoice');
 
 	});
 });
+
+Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');

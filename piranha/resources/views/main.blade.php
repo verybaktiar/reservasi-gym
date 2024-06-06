@@ -40,25 +40,25 @@
                         <a href="{{ url('dashboard') }}"> <i class="menu-icon fa fa-dashboard"></i>Home </a>
                     </li>
                     <li>
-                        <a href="{{ url('pengguna') }}"> <i class="menu-icon fa fa-dashboard"></i>Pengguna</a>
+                        <a href="{{ url('pengguna') }}"> <i class="menu-icon fa fa-user "></i>Pengguna</a>
                     </li>
                     <li>
-                        <a href="{{ url('kategori') }}"> <i class="menu-icon fa fa-puzzle-piece"></i>Kategori </a>
+                        <a href="{{ url('kategori') }}"> <i class="menu-icon  fa fa-stack-exchange"></i>Kategori </a>
                     </li>
                     <li>
-                        <a href="{{ url('paket') }}"> <i class="menu-icon fa fa-puzzle-piece"></i>Paket </a>
+                        <a href="{{ url('paket') }}"> <i class="menu-icon fa fa-suitcase"></i>Paket </a>
                     </li>
                     <li>
-                        <a href="{{ url('produk') }}"> <i class="menu-icon fa fa-puzzle-piece"></i>Produk </a>
+                        <a href="{{ url('produk') }}"> <i class="menu-icon fa fa-archive"></i>Produk </a>
                     </li>
                     <li>
                         <a href="{{ url('member') }}"> <i class="menu-icon fa fa-puzzle-piece"></i>Member </a>
                     </li>
                     <li>
-                        <a href="{{ url('reservasi') }}"> <i class="menu-icon fa fa-puzzle-piece"></i>Reservasi </a>
+                        <a href="{{ url('reservasi') }}"> <i class="menu-icon fa fa-building-o"></i>Reservasi </a>
                     </li>
                     <li>
-                        <a href="{{ url('saldo') }}"> <i class="menu-icon fa fa-puzzle-piece"></i>Saldo Member </a>
+                        <a href="{{ url('saldo') }}"> <i class="menu-icon fa  fa-money"></i>Saldo Member </a>
                     </li>
 
                 </ul>

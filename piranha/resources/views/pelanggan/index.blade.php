@@ -12,15 +12,15 @@
   <title>Web Design Mastery | Power</title>
   <style>
     .saldo {
-    display: flex;
-    align-items: center;
-    font-size: 1.2em;
-    color: #000;
-}
+      display: flex;
+      align-items: center;
+      font-size: 1.2em;
+      color: #000;
+    }
 
-.saldo i {
-    margin-right: 5px;
-}
+    .saldo i {
+      margin-right: 5px;
+    }
   </style>
 </head>
 
@@ -42,22 +42,22 @@
         <li class="link"><a href="#trainer">Trainers</a></li>
         <li class="link"><a href="#price">Pricing</a></li>
         @if(auth()->check())
-          <li class="link dropdown">
-            <a href="#" class="dropdown-toggle" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-              <i class="ri-user-line"></i> Profil
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="profileDropdown">
-              <li>
-                <span class="dropdown-item saldo">
-                  <i class="ri-money-dollar-circle-line"></i>
-                  {{ auth()->user()->saldo->saldo_member }}
-                </span>
-              </li>
-              <li><a class="dropdown-item" href="{{ url('profile') }}">Profile</a></li>
-              <li><a class="dropdown-item" href="{{ url('logout') }}">Logout</a></li>
-              
-            </ul>
-          </li>
+        <li class="link dropdown">
+          <a href="#" class="dropdown-toggle" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="ri-user-line"></i> Profil
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="profileDropdown">
+            <li>
+              <span class="dropdown-item saldo">
+                <i class="ri-money-dollar-circle-line"></i>
+                Rp. {{ auth()->user()->saldo ? auth()->user()->saldo->saldo_member : 0 }}
+              </span>
+            </li>
+            <li><a class="dropdown-item" href="{{ url('profile') }}">Profile</a></li>
+            <li><a class="dropdown-item" href="{{ url('logout') }}">Logout</a></li>
+
+          </ul>
+        </li>
         @endif
       </ul>
     </nav>
@@ -126,7 +126,7 @@
         </div>
       </div>
     </section>
-  
+
     <section class="section__container class__container" id="class">
       <h2 class="section__header">Our Classes</h2>
       <p class="section__description">
@@ -170,7 +170,7 @@
         </div>
       </div>
     </section>
-  
+
     <section class="section__container trainer__container" id="trainer">
       <h2 class="section__header">Our Trainers</h2>
       <p class="section__description">
@@ -241,7 +241,7 @@
         </div>
       </div>
     </section>
-  
+
     <section class="section__container price__container" id="price">
       @foreach($produk as $produk)
       <h2 class="section__header">Our Pricing</h2>
@@ -262,27 +262,24 @@
             <p>Smart workout plan</p>
             <p>At home workouts</p>
           </div>
-  
-  
+
+
           <!-- Button trigger modal -->
           <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modalReservasi">
             Join Now</button>
         </div>
         @endforeach
-  
+
     </section>
   </header>
 
- 
+
   <!-- Modal -->
   <div class="modal fade" id="modalReservasi" tabindex="-1" role="dialog" aria-labelledby="modalReservasiLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="modalReservasiLabel">Formulir Reservasi</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
         </div>
         <div class="modal-body">
           <!-- Formulir reservasi -->
@@ -290,7 +287,7 @@
             @csrf
             <!-- Menyembunyikan paket yang dipilih -->
             <div class="form-group">
-              <label for="nama">nama</label>
+              <label for="nama">Nama Lengkap</label>
               <input type="nama" class="form-control" id="nama" name="nama" required>
             </div>
             <div class="form-group">
@@ -322,7 +319,14 @@
               <textarea class="form-control" id="catatan" name="catatan" rows="3"></textarea>
             </div>
 
-            <button type="submit" class="btn btn-primary">Kirim Reservasi</button>
+            <div class="form-group">
+              <label for="harga">Harga Paket</label>
+              <input type="text" class="form-control" id="total_harga" name="total_harga" value="Rp. {{ number_format($produk->harga_produk, 0, ',', '.') }}" readonly>
+            </div>
+            <div class="d-flex justify-content-end">
+              <button type="submit" class="btn btn-primary">Kirim Reservasi</button>
+            </div>
+
           </form>
 
         </div>

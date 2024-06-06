@@ -9,11 +9,16 @@ class Saldo extends Model
 {
     use HasFactory;
     protected $table = 'saldo_member';
+    protected $primaryKey = 'idsaldo_member';
     protected $fillable = ['users_id','nama_member','saldo_member'];
 
+    // public function user()
+    // {
+    //     return $this->belongsTo(User::class);
+    // }
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'users_id');
     }
 
 }

@@ -23,7 +23,7 @@
             <li>
               <span class="dropdown-item saldo">
                 <i class="ri-money-dollar-circle-line"></i>
-                {{ auth()->user()->saldo->saldo_member }}
+                Rp. {{ auth()->user()->saldo ? auth()->user()->saldo->saldo_member : 0 }}
               </span>
             </li>
             <li><a class="dropdown-item" href="{{ url('profile') }}">Profile</a></li>
